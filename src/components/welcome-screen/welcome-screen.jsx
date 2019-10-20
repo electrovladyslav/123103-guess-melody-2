@@ -5,7 +5,7 @@ const WelcomeScreen = (props) => {
   const {time, mistakesCount} = props;
   return (
     <React.Fragment>
-      <section className="welcome">
+      <section className="welcome" id="welcome">
         <div className="welcome__logo">
           <img
             src="img/melody-logo.png"
