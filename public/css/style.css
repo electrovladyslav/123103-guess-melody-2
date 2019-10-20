@@ -526,12 +526,12 @@ img {
 
 .welcome__logo {
   margin: 0;
-  margin-top: 220px; }
+  margin-top: 200px; }
 
 .welcome__button {
   position: absolute;
   left: 350px;
-  top: 420px;
+  top: 370px;
   padding: 0;
   width: 0;
   height: 0;
