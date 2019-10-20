@@ -49,6 +49,7 @@ Array [
       </div>
       <button
         className="welcome__button"
+        onClick={[Function]}
       >
         <span
           className="visually-hidden"

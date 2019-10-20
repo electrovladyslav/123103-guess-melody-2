@@ -9,6 +9,7 @@ it(`WelcomeScreen component renders correctly`, () => {
         <WelcomeScreen
           time={0}
           mistakesCount={1}
+          startGame={() => {}}
         />
     )
     .toJSON();
