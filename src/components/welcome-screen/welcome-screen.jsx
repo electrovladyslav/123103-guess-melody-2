@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const WelcomeScreen = (props) => {
-  const {time, mistakesCount} = props;
+  const {time, mistakesCount, startGame} = props;
   return (
     <React.Fragment>
       <section className="welcome" id="welcome">
@@ -14,7 +14,7 @@ const WelcomeScreen = (props) => {
             height="83"
           />
         </div>
-        <button className="welcome__button">
+        <button className="welcome__button" onClick={startGame}>
           <span className="visually-hidden">Начать игру</span>
         </button>
         <h2 className="welcome__rules-title">Правила игры</h2>
@@ -31,7 +31,8 @@ const WelcomeScreen = (props) => {
 
 WelcomeScreen.propTypes = {
   time: PropTypes.number.isRequired,
-  mistakesCount: PropTypes.number.isRequired
+  mistakesCount: PropTypes.number.isRequired,
+  startGame: PropTypes.func.isRequired
 };
 
 export default WelcomeScreen;

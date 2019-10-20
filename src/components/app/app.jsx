@@ -4,6 +4,9 @@ import WelcomeScreen from "../welcome-screen/welcome-screen.jsx";
 import Footer from "../footer/footer.jsx";
 
 const App = () => {
+  // eslint-disable-next-line no-alert
+  const startGame = () => alert(`Lets start!`);
+
   return (
     <React.Fragment>
       <main className="app">
@@ -22,7 +25,7 @@ const App = () => {
           </filter>
         </svg>
 
-        <WelcomeScreen time={50} mistakesCount={93} />
+        <WelcomeScreen time={50} mistakesCount={93} startGame={startGame} />
       </main>
       <Footer />
     </React.Fragment>
