@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders correctly 1`] = `
+Array [
+  <main
+    className="app"
+  >
+    <svg
+      style={
+        Object {
+          "left": "-1200em",
+          "position": "absolute",
+        }
+      }
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <filter
+        id="blur"
+      >
+        <feGaussianBlur
+          in="SourceGraphic"
+          stdDeviation="5"
+        />
+        <feOffset
+          dx="0"
+          dy="0"
+        />
+        <feMerge>
+          <feMergeNode />
+          <feMergeNode
+            in="SourceGraphic"
+          />
+        </feMerge>
+      </filter>
+    </svg>
+    <section
+      className="welcome"
+      id="welcome"
+    >
+      <div
+        className="welcome__logo"
+      >
+        <img
+          alt="Угадай мелодию"
+          height="83"
+          src="img/melody-logo.png"
+          width="186"
+        />
+      </div>
+      <button
+        className="welcome__button"
+      >
+        <span
+          className="visually-hidden"
+        >
+          Начать игру
+        </span>
+      </button>
+      <h2
+        className="welcome__rules-title"
+      >
+        Правила игры
+      </h2>
+      <p
+        className="welcome__text"
+      >
+        Правила просты:
+      </p>
+      <ul
+        className="welcome__rules-list"
+      >
+        <li>
+          За 
+          50
+           минут нужно ответить на все вопросы.
+        </li>
+        <li>
+          Можно допустить 
+          93
+           ошибки.
+        </li>
+      </ul>
+      <p
+        className="welcome__text"
+      >
+        Удачи!
+      </p>
+    </section>
+  </main>,
+  <footer
+    className="footer"
+  >
+    <a
+      href="http://creativecommons.org/licenses/by-nc-nd/4.0/"
+      rel="license"
+    >
+      <img
+        alt="Creative Commons License"
+        height="31"
+        src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"
+        style={
+          Object {
+            "borderWidth": 0,
+          }
+        }
+        width="88"
+      />
+    </a>
+    <section
+      className="copyright"
+    >
+      <a
+        className="copyright__logo"
+        href="https://htmlacademy.ru"
+      >
+        <img
+          alt="HTML Academy"
+          height="49"
+          src="img/logo-htmla.svg"
+          width="144"
+        />
+      </a>
+      <p
+        className="copyright__text"
+      >
+        Сделано в
+         
+        <a
+          className="copyright__link"
+          href="https://htmlacademy.ru"
+        >
+          HTML Academy
+        </a>
+      </p>
+    </section>
+  </footer>,
+]
+`;
