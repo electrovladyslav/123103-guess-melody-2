@@ -1,28 +1,30 @@
 import React from "react";
 
+import WelcomeScreen from "../welcome-screen/welcome-screen.jsx";
+import Footer from "../footer/footer.jsx";
+
 const App = () => {
   return (
     <React.Fragment>
-      <section className="welcome">
-        <div className="welcome__logo">
-          <img
-            src="img/melody-logo.png"
-            alt="Угадай мелодию"
-            width="186"
-            height="83"
-          />
-        </div>
-        <button className="welcome__button">
-          <span className="visually-hidden">Начать игру</span>
-        </button>
-        <h2 className="welcome__rules-title">Правила игры</h2>
-        <p className="welcome__text">Правила просты:</p>
-        <ul className="welcome__rules-list">
-          <li>За 5 минут нужно ответить на все вопросы.</li>
-          <li>Можно допустить 3 ошибки.</li>
-        </ul>
-        <p className="welcome__text">Удачи!</p>
-      </section>
+      <main className="app">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          style={{position: `absolute`, left: -1200 + `em`}}>
+          <filter id="blur">
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="5"></feGaussianBlur>
+            <feOffset dx="0" dy="0"></feOffset>
+            <feMerge>
+              <feMergeNode></feMergeNode>
+              <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+          </filter>
+        </svg>
+
+        <WelcomeScreen time={50} mistakesCount={93} />
+      </main>
+      <Footer />
     </React.Fragment>
   );
 };
