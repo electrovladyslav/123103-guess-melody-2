@@ -1,11 +1,66 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import PropTypes from "prop-types";
 
 import WelcomeScreen from "../welcome-screen/welcome-screen.jsx";
+import GenreQuestionScreen from "../genre-screen/genre-screen.jsx";
+import ArtistQuestionScreen from "../artist-screen/artist-screen.jsx";
+import WinScreen from "../win-screen/win-screen.jsx";
 import Footer from "../footer/footer.jsx";
 
-const App = () => {
-  // eslint-disable-next-line no-alert
-  const startGame = () => alert(`Lets start!`);
+const App = (props) => {
+  const {time, mistakesCount, questions} = props;
+  const [questionNumber, setQuestion] = useState(-1);
+
+  const handleUserAnswer = (answers) => {
+    debugger;
+    setQuestion(questionNumber + 1);
+    // eslint-disable-next-line no-console
+    console.log(answers);
+  };
+
+  useEffect(() => {
+    if (questionNumber > questions.length) {
+      setQuestion(-1);
+    }
+  });
+
+  const renderScreen = (screenIndex) => {
+    if (screenIndex === -1) {
+      return (
+        <WelcomeScreen
+          time={time}
+          mistakesCount={mistakesCount}
+          startGame={handleUserAnswer}
+        />
+      );
+    } else if (screenIndex === questions.length) {
+      return <WinScreen restartGame={handleUserAnswer}/>;
+    }
+
+    const currentQuestion = questions[screenIndex];
+
+    switch (currentQuestion.type) {
+      case `genre`:
+        return (
+          <GenreQuestionScreen
+            screenIndex={screenIndex}
+            question={currentQuestion}
+            onAnswer={handleUserAnswer}
+          />
+        );
+
+      case `artist`:
+        return (
+          <ArtistQuestionScreen
+            screenIndex={screenIndex}
+            question={currentQuestion}
+            onAnswer={handleUserAnswer}
+          />
+        );
+    }
+
+    return null;
+  };
 
   return (
     <React.Fragment>
@@ -25,11 +80,25 @@ const App = () => {
           </filter>
         </svg>
 
-        <WelcomeScreen time={50} mistakesCount={93} startGame={startGame} />
+        {renderScreen(questionNumber)}
       </main>
       <Footer />
     </React.Fragment>
   );
+};
+
+App.propTypes = {
+  time: PropTypes.number.isRequired,
+  mistakesCount: PropTypes.number.isRequired,
+  questions: PropTypes.arrayOf(
+      PropTypes.shape(
+          {
+            type: PropTypes.oneOf([`genre`, `artist`]).isRequired,
+            genre: PropTypes.oneOf([`rock`, `pop`, `jazz`, `folk`]).isRequired,
+            answers: PropTypes.array.isRequired,
+          }.isRequired
+      )
+  ),
 };
 
 export default App;
